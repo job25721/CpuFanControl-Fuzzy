@@ -51,7 +51,8 @@ def simulate(core_temp, clock_spd):
     fan_ctrl_simulation.input['core_temp'] = core_temp
     fan_ctrl_simulation.input['clock_spd'] = clock_spd
     fan_ctrl_simulation.compute()
-    print(f'core temp = {core_temp} Celsius,clock speed = {clock_spd} GHz')
+    print(
+        f'input : core temp = {core_temp} Celsius,clock speed = {clock_spd} GHz')
     print(
         f'output : cpu fan speed = {fan_ctrl_simulation.output["fan_spd"]} RPM')
     fan_spd.view(sim=fan_ctrl_simulation)
