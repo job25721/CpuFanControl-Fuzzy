@@ -40,7 +40,7 @@ rule7 = ctrl.Rule(core_temp['hot'] & clock_spd['low'], fan_spd['fast'])
 rule8 = ctrl.Rule(core_temp['hot'] & clock_spd['med'], fan_spd['fast'])
 rule9 = ctrl.Rule(core_temp['hot'] & clock_spd['high'], fan_spd['fast'])
 
-# add rules to conctrl system
+# add rules to conctrol system
 cpu_fan_ctrl = ctrl.ControlSystem(
     [rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
 
@@ -51,11 +51,12 @@ def simulate(core_temp, clock_spd):
     fan_ctrl_simulation.input['core_temp'] = core_temp
     fan_ctrl_simulation.input['clock_spd'] = clock_spd
     fan_ctrl_simulation.compute()
-    print(f'core temp = {core_temp} Celcius,clock speed = {clock_spd} GHz')
+    print(f'core temp = {core_temp} Celsius,clock speed = {clock_spd} GHz')
     print(
         f'output : cpu fan speed = {fan_ctrl_simulation.output["fan_spd"]} RPM')
     fan_spd.view(sim=fan_ctrl_simulation)
     plt.show()
 
 
-simulate(25, 2.5)
+# simulation
+simulate(core_temp=80, clock_spd=2.7)
